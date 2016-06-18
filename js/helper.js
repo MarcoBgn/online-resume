@@ -21,7 +21,7 @@ var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="http://websites.uk-plc.net/young_harmonisers/">%data%';
-var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkTitle = '  - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
@@ -34,14 +34,14 @@ var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolDegree = '  --  %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineSchool = '  -  %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
@@ -59,6 +59,14 @@ $(document).ready(function() {
   });
 });
 
+function inName(name) {
+  var firstName = name.split(" ")[0].replace(/([^.])/, function (_, letter) {
+    return letter.toUpperCase();
+  })
+  var lastName = name.split(" ")[1].toUpperCase();
+  return firstName + " " + lastName;
+}
+
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
 */
@@ -75,7 +83,7 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+  logClicks(loc.pageX, loc.pageY);
 });
 
 

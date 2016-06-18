@@ -1,14 +1,3 @@
-var formattedName = HTMLheaderName.replace("%data%", 'Marco Bagnasco');
-var formattedRole = HTMLheaderRole.replace("%data%", 'Junior Web Developer');
-var formattedEmail = HTMLemail.replace("%data%", 'admin@hecticmojo.com');
-var formattedMobile = HTMLmobile.replace("%data%", '0777 - 404XXXX');
-
-var formattedWorkTitleM = HTMLworkTitle.replace("%data%", 'Manager/Teacher');
-var formattedWorkTitleT = HTMLworkTitle.replace("%data%", 'Music Teacher');
-var formattedWorkDates = HTMLworkDates.replace("%data%", '10/2015 - 06/2016');
-var formattedWorkLocation = HTMLworkLocation.replace("%data%", 'East London');
-var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", 'Young Harmonisers UK');
-
 var bio = {
       'name': formattedName,
       'role': formattedRole,
@@ -16,10 +5,10 @@ var bio = {
         'email': formattedEmail,
         'mobile': formattedMobile
       },
-      'pictureURL': 'images/pic.jpg',
+      'pictureURL': 'images/fry.jpg',
       'welcome': 'Welcome to my website',
       'skills': [
-        'Ruby', 'RoR', 'JavaScript', 'AngularJS', 'TDD', 'OOP'
+        'Problem Solver', 'Team Work', 'Ruby / Ruby on Rails', 'JavaScript / AngularJS', 'TDD'
       ]
     };
 
@@ -27,33 +16,97 @@ var work = {
     'last' : {
       'position': formattedWorkTitleM,
       'employer': formattedWorkEmployer,
-      'dates': formattedWorkDates,
-      'workLocation': formattedWorkLocation
+      'dates': formattedWorkDatesM,
+      'workLocation': formattedWorkLocation,
+      'workDescription': formattedWorkDescM
     },
     'teacher': {
       'position': formattedWorkTitleT,
       'employer': formattedWorkEmployer,
-      'dates': formattedWorkDates,
-      'workLocation': formattedWorkLocation
+      'dates': formattedWorkDatesT,
+      'workLocation': formattedWorkLocation,
+      'workDescription': formattedWorkDescT
     }
 
   }
 
 var education = {
-    'institution': 'BIMM London',
-    'type': 'Degree',
-    'title': 'BA(Hons)',
-    'location': 'London',
-    'subjects': [
-      { 'Music Technology': ['ProTools', 'Logic ProX', 'Ableton Live']},
-      'Music Pedagogy',
-      'Business and Publishing',
-      'Recording Skills'
-    ]
+    'degree': {
+      'institution': formattedSchoolName,
+      'degree': formattedSchoolDegree,
+      'schoolLocation': formattedSchoolLocation,
+      'dates': formattedSchoolDates,
+      'skills': [
+        'Music Technology',
+        'Music Pedagogy',
+        'Business and Publishing',
+        'Recording Skills'
+      ]
+    },
+    'makers': {
+      'institution': formattedSchoolNameMA,
+      'degree': formattedSchoolDegreeMA,
+      'schoolLocation': formattedSchoolLocationMA,
+      'dates': formattedSchoolDatesMA
+    },
+    'udacity': {
+      'institution': formattedSchoolNameU,
+      'degree': formattedSchoolDegreeU,
+      'schoolLocation': formattedSchoolLocationU,
+      'dates': formattedSchoolDatesU
+    }
   }
 
-$('#header').prepend(bio.name).append(bio.role);
+  var projects = {
+    'githubVanilla' : {
+      'projTitle': formattedProjectTitleGH,
+      'dates': formattedProjectDatesGH,
+      'projDescription': formattedProjectDescGH,
+      'image': formattedProjectImageGH,
+    },
+    'bbcIplayer': {
+      'projTitle': "formattedProjectTitleBBC",
+      'dates': "formattedProjectDatesBBC",
+      'projDescription': "formattedProjectDescBBC",
+      'image': "formattedProjectImageBBC",
+    },
+    'fairMuse': {
+      'projTitle': "formattedProjectTitleFM",
+      'dates': "formattedProjectDatesFM",
+      'projDescription': "formattedProjectDescFM",
+      'image': "formattedProjectImageFM",
+    }
+  }
+
+if (bio.skills.length > 0) {
+  var formattedSkill, i = 0;
+  $('#header').append(HTMLskillsStart);
+
+  for (var index in bio.skills) {
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[index]);
+    $('#skills').append(formattedSkill);
+    i++;
+  }
+}
+
+$('#header').append(internationalizeButton);
+$('#header').append(bio.name).append(bio.role);
 $('#header').append(bio.contacts['email'], bio.contacts['mobile']);
-$('#workExperience').append(HTMLworkStart, work.last.position, work.last.dates, work.last.workLocation, work.last.employer);
-$('#workExperience').append('<hr>');
-$('#workExperience').append(HTMLworkStart, work.teacher.position, work.teacher.dates, work.teacher.workLocation, work.teacher.employer);
+
+(function displayWork() {
+  for (var index in work) {
+    $('#workExperience').append(HTMLworkStart, work[index].position, work[index].dates, work[index].workLocation, work[index].employer, work[index].workDescription);
+    $('#workExperience').append('<hr>');
+  }
+}());
+
+(function displayEdu() {
+  for (var index in education) {
+    $('#education').append(HTMLschoolStart, education[index].institution, education[index].degree, education[index].schoolLocation, education[index].dates);
+    $('#education').append('<hr>');
+  }
+}());
+
+(function displayProjects() {
+  $('#projects').append(HTMLprojectStart, projects.githubVanilla.projTitle, projects.githubVanilla.dates, projects.githubVanilla.projDescription, projects.githubVanilla.image);
+}());
