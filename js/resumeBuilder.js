@@ -3,7 +3,8 @@ var bio = {
       'role': HTMLheaderRole.replace("%data%", 'Junior Web Developer'),
       'contacts': {
         'email': HTMLemail.replace("%data%", 'admin@hecticmojo.com'),
-        'mobile': HTMLmobile.replace("%data%", '0777 - 404XXXX')
+        'mobile': HTMLmobile.replace("%data%", '0777 - 404XXXX'),
+        'location': "London, Liverpool Street"
       },
       'pictureURL': 'images/fry.jpg',
       'welcome': 'Welcome to my website',
@@ -29,7 +30,14 @@ var bio = {
     };
 
 var work = {
-    'last' : {
+    'developer' : {
+      'position': HTMLworkTitle.replace("%data%", "Junior Developer"),
+      'employer': HTMLworkEmployer.replace("%data%", 'Freelance'),
+      'dates': HTMLworkDates.replace("%data%", '10/2015 - present'),
+      'location': HTMLworkLocation.replace("%data%", 'London'),
+      'workDescription': HTMLworkDescription.replace("%data%", "Front-End (JavaScript/Angular), Back-End (Ruby/RubyOnRails), OpenSource (Git/GitHub)")
+    },
+    'manager' : {
       'position': HTMLworkTitle.replace("%data%", "Manager"),
       'employer': HTMLworkEmployer.replace("%data%", 'Young Harmonisers UK'),
       'dates': HTMLworkDates.replace("%data%", '1/2016 - 06/2016'),
@@ -39,21 +47,34 @@ var work = {
     'teacher': {
       'position': HTMLworkTitle.replace("%data%", "Music Teacher"),
       'employer': HTMLworkEmployer.replace("%data%", 'Young Harmonisers UK'),
-      'dates': HTMLworkDates.replace("%data%", '10/2015 - 01/2016'),
+      'dates': HTMLworkDates.replace("%data%", '10/2014 - 01/2016'),
       'location': HTMLworkLocation.replace("%data%", 'London'),
       'workDescription': HTMLworkDescription.replace("%data%", "Drums Teaching up to Grade 5, Piano Assistance, Music Theory")
+    },
+    'Retail': {
+      'position': HTMLworkTitle.replace("%data%", "Sales/Team Leader"),
+      'employer': HTMLworkEmployer.replace("%data%", 'Various'),
+      'dates': HTMLworkDates.replace("%data%", '9/2008 - 06/2012'),
+      'location': HTMLworkLocation.replace("%data%", 'Savona / London'),
+      'workDescription': HTMLworkDescription.replace("%data%", "Sales, Customer assistance, Business supervision")
+    },
+    'Computer Engineer': {
+      'position': HTMLworkTitle.replace("%data%", "Computer Engineer"),
+      'employer': HTMLworkEmployer.replace("%data%", 'Telmec S.N.C.'),
+      'dates': HTMLworkDates.replace("%data%", '1/1999 - 06/2006'),
+      'location': HTMLworkLocation.replace("%data%", 'Carcare (SV)'),
+      'workDescription': HTMLworkDescription.replace("%data%", "Computer system assembling, LAN, Helpdesk, onsite assistance")
     },
     display() {
       for (var index in work) {
         $('#workExperience').append(HTMLworkStart, work[index].position, work[index].dates, work[index].location, work[index].employer, work[index].workDescription);
-        $('#workExperience').append('<hr>');
       }
     }
   }
 
 var education = {
     'degree': {
-      'institution': HTMLschoolName.replace("%data%", "BIMM London - UWL"),
+      'institution': HTMLschoolName.replace("%data%", "BIMM London - UWL").replace("#%website%", "http://www.bimm.co.uk"),
       'degree': HTMLschoolDegree.replace("%data%", 'BA(Hons)'),
       'location': HTMLschoolLocation.replace("%data%", 'London'),
       'dates': HTMLschoolDates.replace("%data%", '10/2012 - 06/2015'),
@@ -65,13 +86,13 @@ var education = {
       ]
     },
     'makers': {
-      'institution': HTMLschoolName.replace("%data%", "Makers Academy"),
+      'institution': HTMLschoolName.replace("%data%", "Makers Academy").replace("#%website%", "http://www.makersacademy.com"),
       'degree': HTMLschoolDegree.replace("%data%", 'Ronin'),
       'location': HTMLschoolLocation.replace("%data%", 'London'),
       'dates': HTMLschoolDates.replace("%data%", '11/2015 - 04/2016')
     },
     'udacity': {
-      'institution': HTMLschoolName.replace("%data%", "Udacity"),
+      'institution': HTMLschoolName.replace("%data%", "Udacity").replace("#%website%", "http://www.udacity.com"),
       'degree': HTMLschoolDegree.replace("%data%", 'Front-End Nano-Degree'),
       'location': HTMLschoolLocation.replace("%data%", 'Online'),
       'dates': HTMLschoolDates.replace("%data%", '06/2016 - present')
@@ -79,7 +100,6 @@ var education = {
     display() {
       for (var index in education) {
         $('#education').append(HTMLschoolStart, education[index].institution, education[index].degree, education[index].location, education[index].dates);
-        $('#education').append('<hr>');
       }
     }
   }

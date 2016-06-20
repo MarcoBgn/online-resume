@@ -14,14 +14,29 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  margin: 1em;
+}
+
+div {
+  padding: 0.1em;
+}
+
 .clear-fix {
   overflow: auto;
 }
 
+.education-entry:not(:first-of-type):not(:last-of-type),
+.work-entry:not(:first-of-type):not(:last-of-type),
+.project-entry:not(:first-of-type):not(:last-of-type) {
+  height: 1.5em;
+  border-bottom: solid 1px lightgray;
+}
+
 .education-entry,
 .work-entry,
-.project-entry {
-  padding: 0 5%;
+.project-entry, {
+  padding: 0.1em;
 }
 
 h1 {
@@ -153,11 +168,12 @@ ul {
   float: left;
   padding: 10px;
   width: 200px;
-  display: none;
 }
 
 img {
   padding: 10px;
+  width: 40%;
+  max-height: 268px;
 }
 
 span {
