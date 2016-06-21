@@ -41,7 +41,7 @@ div {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #5c8a8a;
   line-height: 48px;
   display: inline;
 }
@@ -49,7 +49,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: black;
   line-height: 29px;
   padding: 10px;
 }
@@ -57,14 +57,14 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #5c8a8a;
   line-height: 22px;
 }
 
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4a4a4a;
+  color: #5c8a8a;
   line-height: 17px;
 }
 
@@ -94,6 +94,10 @@ h5 {
 
 }
 
+#projects {
+  background-color: #b3cccc;
+}
+
 p {
   font-size: 14px;
   color: #333;
@@ -110,21 +114,21 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
+  color: #66d9ff;
   line-height: 28px;
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #b3cccc;
   display: none;
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #66d9ff;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #66d9ff;
 }
 
 .white-text {
@@ -133,13 +137,13 @@ a {
 }
 
 .gray {
-  background-color: #f3f3f3;
+  background-color: #b3cccc;
   padding-bottom: 10px;
   clear:both;
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #b3cccc;
 }
 
 /* TODO: Replace with image later */

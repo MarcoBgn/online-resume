@@ -6,14 +6,14 @@ var bio = {
         'mobile': HTMLmobile.replace("%data%", '0777 - 404XXXX'),
         'location': "London, Liverpool Street"
       },
-      'pictureURL': 'images/fry.jpg',
+      'pictureURL': HTMLbioPic.replace("%data%", 'images/avatar.png'),
       'welcome': 'Welcome to my website',
       'skills': [
         'Problem Solver', 'Team Work', 'Ruby / Ruby on Rails', 'JavaScript / AngularJS', 'TDD'
       ],
       display() {
         $('#header').append(bio.name).append(bio.role);
-        $('#header').append(bio.contacts['email'], bio.contacts['mobile']);
+        $('#header').append(bio.contacts['email'], bio.contacts['mobile'], bio.pictureURL);
       },
       displaySkills() {
         if (bio.skills.length > 0) {
