@@ -11,11 +11,14 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-family: 'Poiret One', cursive;
 }
 
 body {
+  font-family: 'Poiret One', cursive;
   margin: 1em;
+  font-size: 16px;
 }
 
 div {
@@ -48,7 +51,7 @@ h1 {
 
 h2 {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 2em;
   color: black;
   line-height: 29px;
   padding: 10px;
@@ -56,7 +59,7 @@ h2 {
 
 h3 {
   font-style: italic;
-  font-size: 20px;
+  font-size: 1.8em;
   color: #5c8a8a;
   line-height: 22px;
 }
@@ -95,7 +98,7 @@ h5 {
 }
 
 #projects {
-  background-color: #b3cccc;
+  background-color: #e0ebeb;
 }
 
 p {
@@ -119,16 +122,16 @@ a {
 }
 
 #skills-h3 {
-  color: #b3cccc;
+  color: #e0ebeb;
   display: none;
 }
 
 .orange {
-  background-color: #66d9ff;
+  background-color: #e0ebeb;
 }
 
 .orange-text {
-  color: #66d9ff;
+  color: #e0ebeb;
 }
 
 .white-text {
@@ -137,13 +140,13 @@ a {
 }
 
 .gray {
-  background-color: #b3cccc;
+  background-color: #e0ebeb;
   padding-bottom: 10px;
   clear:both;
 }
 
 .dark-gray {
-  background-color: #b3cccc;
+  background-color: #e0ebeb;
 }
 
 /* TODO: Replace with image later */
