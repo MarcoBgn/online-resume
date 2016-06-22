@@ -7,5 +7,4 @@ jQuery(function ($) {
       $('#header').removeClass('header-scroll');
     }
   })
-
 })
