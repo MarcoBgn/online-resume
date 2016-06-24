@@ -1,13 +1,13 @@
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLcontactGeneric = '<span class="flex-item bio-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></sp>';
+var HTMLmobile = '<span class="flex-item bio-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></sp>';
+var HTMLemail = '<span class="flex-item bio-item"><span class="orange-text">email</span><span class="white-text">%data%</span></sp>';
+var HTMLtwitter = '<span class="flex-item bio-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></sp>';
+var HTMLgithub = '<span class="flex-item bio-item"><span class="orange-text">github</span><span class="white-text">%data%</span></sp>';
+var HTMLblog = '<span class="flex-item bio-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></sp>';
+var HTMLlocation = '<span class="flex-item bio-item"><span class="orange-text">location</span><span class="white-text">%data%</span></sp>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -51,6 +51,19 @@ $(document).ready(function() {
     $name.html(iName);
   });
 });
+
+function displaySkills() {
+  if (bio.skills.length > 0) {
+    var formattedSkill, i = 0;
+    $('#header').append(HTMLskillsStart);
+
+    for (var index in bio.skills) {
+      formattedSkill = HTMLskills.replace("%data%", bio.skills[index]);
+      $('#skills').append(formattedSkill);
+      i++;
+    }
+  }
+}
 
 function inName(name) {
   var firstName = name.split(" ")[0].replace(/([^.])/, function (_, letter) {

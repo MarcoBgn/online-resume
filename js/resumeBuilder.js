@@ -2,30 +2,19 @@ var bio = {
       'name': HTMLheaderName.replace("%data%", 'Marco Bagnasco'),
       'role': HTMLheaderRole.replace("%data%", 'Junior Web Developer'),
       'contacts': {
-        'email': HTMLemail.replace("%data%", 'admin@hecticmojo.com'),
         'mobile': HTMLmobile.replace("%data%", '0777 - 404XXXX'),
+        'email': HTMLemail.replace("%data%", 'admin@hecticmojo.com'),
+        'github': HTMLgithub.replace("%data%", "marcocode"),
         'location': "London, Liverpool Street"
       },
-      'pictureURL': HTMLbioPic.replace("%data%", 'images/avatar.png'),
-      'welcome': 'Welcome to my website',
+      'welcomeMessage': 'Welcome to my website',
       'skills': [
         'Problem Solver', 'Team Work', 'Ruby / Ruby on Rails', 'JavaScript / AngularJS', 'TDD'
       ],
+      'biopic': HTMLbioPic.replace("%data%", 'images/avatar.png'),
       display() {
-        $('#header').append(bio.name).append(bio.role);
-        $('#header').append(bio.contacts['email'], bio.contacts['mobile'], bio.pictureURL);
-      },
-      displaySkills() {
-        if (bio.skills.length > 0) {
-          var formattedSkill, i = 0;
-          $('#header').append(HTMLskillsStart);
-
-          for (var index in bio.skills) {
-            formattedSkill = HTMLskills.replace("%data%", bio.skills[index]);
-            $('#skills').append(formattedSkill);
-            i++;
-          }
-        }
+        $('#header').append(bio.name, bio.role, bio.biopic);
+        $('#footerContacts').append(bio.contacts['email'], bio.contacts['mobile'], bio.contacts['github']);
       }
     };
 
@@ -131,7 +120,7 @@ var education = {
   }
 
 bio.display();
-bio.displaySkills();
+displaySkills();
 work.display();
 education.display();
 projects.display();

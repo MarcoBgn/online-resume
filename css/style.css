@@ -131,7 +131,7 @@ a {
 }
 
 .orange-text {
-  color: #e0ebeb;
+  color: black;
 }
 
 .white-text {
@@ -151,6 +151,7 @@ a {
 
 #header {
   background-color: #484848;
+  transition: height 0.5s;
 }
 
 .header-scroll {
@@ -184,6 +185,13 @@ ul {
   float: left;
   padding: 10px;
   width: 200px;
+}
+
+#contacts-hr {
+  top: 13.5em;
+  position: relative;
+  width: 50%;
+  right: 1em;
 }
 
 img {
