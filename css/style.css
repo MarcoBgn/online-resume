@@ -152,6 +152,7 @@ a {
 #header {
   background-color: #484848;
   transition: height 0.5s;
+  z-index: 1;
 }
 
 .header-scroll {
@@ -197,6 +198,10 @@ span {
   padding: 5px;
 }
 
+#mapDiv {
+  z-index: 0;
+}
+
 #lets-connect {
   text-align: center;
 }
@@ -217,7 +222,7 @@ span {
 
 @media only screen and (max-width: 750px) {
   #lets-connect {
-    margin-top: 10%;
+    margin-top: 5%;
   }
 
   #name,
@@ -246,8 +251,7 @@ span {
   #mapDiv {
     height: 150px;
     width: 100%;
-    padding-bottom: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -295,7 +299,6 @@ span {
   #mapDiv {
     height: 150px;
     width: 100%;
-    padding-bottom: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 0.5em;
   }
 }
