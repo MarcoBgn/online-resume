@@ -64,33 +64,48 @@ var work = {
   }
 
 var education = {
-    'degree': {
-      'institution': HTMLschoolName.replace("%data%", "BIMM London - UWL").replace("#%website%", "http://www.bimm.co.uk"),
-      'degree': HTMLschoolDegree.replace("%data%", 'BA(Hons)'),
-      'location': HTMLschoolLocation.replace("%data%", 'London'),
-      'dates': HTMLschoolDates.replace("%data%", '10/2012 - 06/2015'),
-      'skills': [
-        'Music Technology',
-        'Music Pedagogy',
-        'Business and Publishing',
-        'Recording Skills'
-      ]
-    },
-    'makers': {
-      'institution': HTMLschoolName.replace("%data%", "Makers Academy").replace("#%website%", "http://www.makersacademy.com"),
-      'degree': HTMLschoolDegree.replace("%data%", 'Ronin'),
-      'location': HTMLschoolLocation.replace("%data%", 'London'),
-      'dates': HTMLschoolDates.replace("%data%", '11/2015 - 04/2016')
-    },
-    'udacity': {
-      'institution': HTMLschoolName.replace("%data%", "Udacity").replace("#%website%", "http://www.udacity.com"),
-      'degree': HTMLschoolDegree.replace("%data%", 'Front-End Nano-Degree'),
-      'location': HTMLschoolLocation.replace("%data%", 'Online'),
-      'dates': HTMLschoolDates.replace("%data%", '06/2016 - present')
-    },
+    'schools': [
+        {
+          'name': HTMLschoolName.replace("%data%", "BIMM London - UWL").replace("#%website%", "http://www.bimm.co.uk"),
+          'location': HTMLschoolLocation.replace("%data%", 'London'),
+          'degree': HTMLschoolDegree.replace("%data%", 'BA(Hons)'),
+          'majors': ['Music'],
+          'dates': HTMLschoolDates.replace("%data%", '10/2012 - 06/2015'),
+          'url': 'https://www.bimm.co.uk'
+        },
+        {
+          'name': HTMLschoolName.replace("%data%", "Liceo Scientifico G.Calasanzio").replace("#%website%", "http://http://www.liceocarcare.gov.it/"),
+          'location': HTMLschoolLocation.replace("%data%", 'Carcare (SV)'),
+          'degree': HTMLschoolDegree.replace("%data%", 'Maturità Scientifica'),
+          'majors': ['Music'],
+          'dates': HTMLschoolDates.replace("%data%", '10/1993 - 06/1999'),
+          'url': 'http://http://www.liceocarcare.gov.it/'
+        }
+      ],
+    'onlineCourses': [
+          {
+            'title': HTMLonlineTitle.replace("%data%", 'Ronin'),
+            'school': HTMLonlineSchool.replace("%data%", "Makers Academy").replace("#%website%", "http://www.makersacademy.com"),
+            'date': HTMLonlineDates.replace("%data%", '11/2015 - 04/2016')
+          },
+          {
+            'title': HTMLonlineTitle.replace("%data%", 'Front-End Nano-Degree'),
+            'school': HTMLonlineSchool.replace("%data%", "Udacity").replace("#%website%", "http://www.udacity.com"),
+            'date': HTMLonlineDates.replace("%data%", '06/2016 - present')
+          }
+        ],
     display() {
       for (var index in education) {
-        $('#education').append(HTMLschoolStart, education[index].institution, education[index].degree, education[index].location, education[index].dates);
+        if (index === 'schools') {
+          $('#education').append(HTMLschoolStart, education[index][0].name, education[index][0].degree, education[index][0].location, education[index][0].dates);
+          $('#education').append(education[index][1].name, education[index][1].degree, education[index][1].location, education[index][1].dates);
+          continue;
+        } else {
+          $('#education').append(HTMLonlineClasses);
+          $('#education').append(education[index][0].title, education[index][0].school, education[index][0].date);
+          $('#education').append(education[index][1].title, education[index][1].school, education[index][1].date);
+          return;
+        }
       }
     }
   }
