@@ -5,15 +5,17 @@ var bio = {
         'mobile': HTMLmobile.replace("%data%", '0777 - 404XXXX'),
         'email': HTMLemail.replace("%data%", 'admin@hecticmojo.com'),
         'github': HTMLgithub.replace("%data%", "marcocode"),
-        'location': "London, Liverpool Street"
+        'location': HTMLlocation.replace("%data%", "London")
       },
       'welcomeMessage': 'Welcome to my website',
       'skills': [
-        'Problem Solver', 'Team Work', 'Ruby / Ruby on Rails', 'JavaScript / AngularJS', 'TDD'
+        'Problem Solver', 'Team Work', 'Ruby', 'JavaScript', 'TDD'
       ],
       'biopic': HTMLbioPic.replace("%data%", 'images/avatar.png'),
       display() {
-        $('#header').append(bio.name, bio.role, bio.biopic);
+        var contactsDiv = '<div class="flex-box" id="contacts"></div>';
+        $('#header').append(bio.name, bio.role, bio.biopic, contactsDiv);
+        $('#contacts').append(bio.contacts['email'], bio.contacts['github'], bio.contacts['location']);
         $('#footerContacts').append(bio.contacts['email'], bio.contacts['mobile'], bio.contacts['github']);
       }
     };

@@ -136,7 +136,7 @@ a {
 
 .white-text {
   font-weight: bold;
-  color: #fff;
+  color: #92b9b9;
 }
 
 .gray {
@@ -187,13 +187,6 @@ ul {
   width: 200px;
 }
 
-#contacts-hr {
-  top: 13.5em;
-  position: relative;
-  width: 50%;
-  right: 1em;
-}
-
 img {
   padding: 10px;
   width: 40%;
@@ -210,7 +203,7 @@ span {
 
 /* Media queries to handle various device widths */
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
   #lets-connect {
     margin-top: 5%;
   }
@@ -226,29 +219,83 @@ span {
   #lets-connect {
     margin-top: 10%;
   }
+
+  #name,
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .white-text,
+  .orange-text {
+    font-size: 1em;
+  }
+
   .biopic {
     width: 150px;
   }
   .welcome-message {
     display: none;
   }
+
+  #map {
+    display: block;
+    height: 70%;
+    margin: 0 5%;
+  }
+
+  #mapDiv {
+    height: 150px;
+    width: 100%;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+  }
 }
 
-#map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
-}
 
 @media only screen and (min-width: 750px) {
   #skills-h3,
   .biopic {
     display: block;
+  }
+
+  #map {
+    display: block;
+    height: 70%;
+    margin: 0 2.5%;
+  }
+
+  #mapDiv {
+    height: 250px;
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .biopic {
+    display: block;
+    position: relative;
+    left: 22.5%;
+  }
+
+  #skills-h3 {
+    display: none;
+  }
+
+  #contacts {
+    width: 90%;
+  }
+
+  #map {
+    display: block;
+    height: 70%;
+    margin: 0 5%;
+  }
+
+  #mapDiv {
+    height: 150px;
+    width: 100%;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
   }
 }
