@@ -21,47 +21,49 @@ var bio = {
     };
 
 var work = {
-    'developer' : {
-      'position': HTMLworkTitle.replace("%data%", "Junior Developer"),
-      'employer': HTMLworkEmployer.replace("%data%", 'Freelance'),
-      'dates': HTMLworkDates.replace("%data%", '10/2015 - present'),
-      'location': HTMLworkLocation.replace("%data%", 'London'),
-      'workDescription': HTMLworkDescription.replace("%data%", "Front-End (JavaScript/Angular), Back-End (Ruby/RubyOnRails), OpenSource (Git/GitHub)")
-    },
-    'manager' : {
-      'position': HTMLworkTitle.replace("%data%", "Manager"),
-      'employer': HTMLworkEmployer.replace("%data%", 'Young Harmonisers UK'),
-      'dates': HTMLworkDates.replace("%data%", '1/2016 - 06/2016'),
-      'location': HTMLworkLocation.replace("%data%", 'London'),
-      'workDescription': HTMLworkDescription.replace("%data%", "Recruitment and Training, Quality Control, Teaching.")
-    },
-    'teacher': {
-      'position': HTMLworkTitle.replace("%data%", "Music Teacher"),
-      'employer': HTMLworkEmployer.replace("%data%", 'Young Harmonisers UK'),
-      'dates': HTMLworkDates.replace("%data%", '10/2014 - 01/2016'),
-      'location': HTMLworkLocation.replace("%data%", 'London'),
-      'workDescription': HTMLworkDescription.replace("%data%", "Drums Teaching up to Grade 5, Piano Assistance, Music Theory")
-    },
-    'Retail': {
-      'position': HTMLworkTitle.replace("%data%", "Sales/Team Leader"),
-      'employer': HTMLworkEmployer.replace("%data%", 'Various'),
-      'dates': HTMLworkDates.replace("%data%", '9/2008 - 06/2012'),
-      'location': HTMLworkLocation.replace("%data%", 'Savona / London'),
-      'workDescription': HTMLworkDescription.replace("%data%", "Sales, Customer assistance, Business supervision")
-    },
-    'Computer Engineer': {
-      'position': HTMLworkTitle.replace("%data%", "Computer Engineer"),
-      'employer': HTMLworkEmployer.replace("%data%", 'Telmec S.N.C.'),
-      'dates': HTMLworkDates.replace("%data%", '1/1999 - 06/2006'),
-      'location': HTMLworkLocation.replace("%data%", 'Carcare (SV)'),
-      'workDescription': HTMLworkDescription.replace("%data%", "Computer system assembling, LAN, Helpdesk, onsite assistance")
-    },
-    display() {
-      for (var index in work) {
-        $('#workExperience').append(HTMLworkStart, work[index].position, work[index].dates, work[index].location, work[index].employer, work[index].workDescription);
+    'jobs': [
+      {
+        'position': HTMLworkTitle.replace("%data%", "Junior Developer"),
+        'employer': HTMLworkEmployer.replace("%data%", 'Freelance'),
+        'dates': HTMLworkDates.replace("%data%", '10/2015 - present'),
+        'location': HTMLworkLocation.replace("%data%", 'London'),
+        'workDescription': HTMLworkDescription.replace("%data%", "Front-End (JavaScript/Angular), Back-End (Ruby/RubyOnRails), OpenSource (Git/GitHub)")
+      },
+      {
+        'position': HTMLworkTitle.replace("%data%", "Manager"),
+        'employer': HTMLworkEmployer.replace("%data%", 'Young Harmonisers UK'),
+        'dates': HTMLworkDates.replace("%data%", '1/2016 - 06/2016'),
+        'location': HTMLworkLocation.replace("%data%", 'London'),
+        'workDescription': HTMLworkDescription.replace("%data%", "Recruitment and Training, Quality Control, Teaching.")
+      },
+      {
+        'position': HTMLworkTitle.replace("%data%", "Music Teacher"),
+        'employer': HTMLworkEmployer.replace("%data%", 'Young Harmonisers UK'),
+        'dates': HTMLworkDates.replace("%data%", '10/2014 - 01/2016'),
+        'location': HTMLworkLocation.replace("%data%", 'London'),
+        'workDescription': HTMLworkDescription.replace("%data%", "Drums Teaching up to Grade 5, Piano Assistance, Music Theory")
+      },
+      {
+        'position': HTMLworkTitle.replace("%data%", "Sales/Team Leader"),
+        'employer': HTMLworkEmployer.replace("%data%", 'Various'),
+        'dates': HTMLworkDates.replace("%data%", '9/2008 - 06/2012'),
+        'location': HTMLworkLocation.replace("%data%", 'Savona / London'),
+        'workDescription': HTMLworkDescription.replace("%data%", "Sales, Customer assistance, Customer service supervision")
+      },
+      {
+        'position': HTMLworkTitle.replace("%data%", "Computer Engineer"),
+        'employer': HTMLworkEmployer.replace("%data%", 'Telmec S.N.C.'),
+        'dates': HTMLworkDates.replace("%data%", '1/1999 - 06/2006'),
+        'location': HTMLworkLocation.replace("%data%", 'Carcare (SV)'),
+        'workDescription': HTMLworkDescription.replace("%data%", "Computer system assembling, LAN, Helpdesk, onsite assistance")
+      }
+    ],
+      display() {
+        work.jobs.forEach(function (element) {
+          $('#workExperience').append(HTMLworkStart, element.position, element.dates, element.location, element.employer, element.workDescription);
+        })
       }
     }
-  }
 
 var education = {
     'schools': [
