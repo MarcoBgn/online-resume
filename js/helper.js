@@ -11,7 +11,6 @@ var HTMLlocation = '<span class="flex-item bio-item"><span class="orange-text">l
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
-
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
@@ -47,7 +46,7 @@ var googleMap = '<div id="map"></div>';
 $(document).ready(function() {
   $('button').click(function() {
     var $name = $('#name');
-    var iName = inName($name.text()) || function(){};
+    var iName = inName($name.text()) || function() {};
     $name.html(iName);
   });
 });
@@ -72,25 +71,23 @@ function generateResume(bio, work, education, projects) {
   education.display();
   projects.display();
   $('#mapDiv').append(googleMap);
-};
+}
 
 function inName(name) {
-  var firstName = name.split(" ")[0].replace(/([^.])/, function (_, letter) {
+  var firstName = name.split(" ")[0].replace(/([^.])/, function(_, letter) {
     return letter.toUpperCase();
-  })
+  });
   var lastName = name.split(" ")[1].toUpperCase();
   return firstName + " " + lastName;
 }
 
 clickLocations = [];
 
-function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
+function logClicks(x, y) {
+  clickLocations.push({
+    x: x,
+    y: y
+  });
   console.log('x location: ' + x + '; y location: ' + y);
 }
 
@@ -113,7 +110,7 @@ function initializeMap() {
   function locationFinder() {
 
     var locations = [];
-    var extract = />[A-Z]\w+\s*\w+/
+    var extract = />[A-Z]\w+\s*\w+/;
 
     function getLocation(string) {
       return string.match(extract)[0].replace(">", "");
@@ -121,13 +118,13 @@ function initializeMap() {
 
     locations.push(getLocation(bio.contacts.location));
 
-    education.schools.forEach(function (element) {
+    education.schools.forEach(function(element) {
       locations.push(getLocation(element.location));
-    })
+    });
 
-    work.jobs.forEach(function (element) {
+    work.jobs.forEach(function(element) {
       locations.push(getLocation(element.location));
-    })
+    });
     return locations;
   }
 
@@ -167,7 +164,7 @@ function initializeMap() {
 
     var service = new google.maps.places.PlacesService(map);
 
-      locations.forEach(function(place){
+    locations.forEach(function(place) {
       var request = {
         query: place || "..."
       };
@@ -181,7 +178,6 @@ function initializeMap() {
   locations = locationFinder();
 
   pinPoster(locations);
-
 }
 
 window.addEventListener('load', initializeMap);

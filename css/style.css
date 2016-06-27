@@ -9,8 +9,8 @@ h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   font-size: 16px;
   font-family: 'Poiret One', cursive;
 }
@@ -44,7 +44,7 @@ div {
 
 h1 {
   font-size: 40px;
-  color: #92b9b9;
+  color: #1e2f2f;
   line-height: 48px;
   display: inline;
 }
@@ -60,14 +60,14 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 1.8em;
-  color: #92b9b9;
+  color: #1e2f2f;
   line-height: 22px;
 }
 
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #92b9b9;
+  color: #1e2f2f;
   line-height: 17px;
 }
 
@@ -75,10 +75,8 @@ h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
-
+  padding: 10px 5%;
 }
-
 
 .date-text {
   font-style: italic;
@@ -94,7 +92,6 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
 }
 
 #projects {
@@ -122,7 +119,7 @@ a {
 }
 
 #skills-h3 {
-  color: #e0ebeb;
+  color: #1e2f2f;
   display: none;
 }
 
@@ -136,13 +133,13 @@ a {
 
 .white-text {
   font-weight: bold;
-  color: #92b9b9;
+  color: #324e4e;
 }
 
 .gray {
   background-color: #e0ebeb;
   padding-bottom: 10px;
-  clear:both;
+  clear: both;
 }
 
 .dark-gray {
@@ -150,7 +147,7 @@ a {
 }
 
 #header {
-  background-color: #484848;
+  background-color: #d0e1e1;
   transition: height 0.5s;
   z-index: 1;
 }
@@ -217,13 +214,13 @@ span {
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   #lets-connect {
     margin-top: 5%;
-  }
+  };
 }
 
 @media only screen and (max-width:900px) {
   .biopic {
     width: 175px;
-  }
+  };
 }
 
 @media only screen and (max-width: 750px) {
@@ -244,6 +241,7 @@ span {
   .biopic {
     width: 150px;
   }
+
   .welcome-message {
     display: none;
   }
@@ -258,9 +256,8 @@ span {
     height: 150px;
     width: 100%;
     margin-bottom: 0.5em;
-  }
+  };
 }
-
 
 @media only screen and (min-width: 750px) {
   #skills-h3,
@@ -278,7 +275,7 @@ span {
     height: 250px;
     width: 100%;
     margin-bottom: 0.5em;
-  }
+  };
 }
 
 @media only screen and (max-width: 390px) {
@@ -306,5 +303,5 @@ span {
     height: 150px;
     width: 100%;
     margin-bottom: 0.5em;
-  }
+  };
 }
