@@ -1,13 +1,13 @@
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
-var HTMLcontactGeneric = '<span class="flex-item bio-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></sp>';
-var HTMLmobile = '<span class="flex-item bio-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></sp>';
-var HTMLemail = '<span class="flex-item bio-item"><span class="orange-text">email</span><span class="white-text">%data%</span></sp>';
-var HTMLtwitter = '<span class="flex-item bio-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></sp>';
-var HTMLgithub = '<span class="flex-item bio-item"><span class="orange-text">github</span><span class="white-text">%data%</span></sp>';
+var HTMLcontactGeneric = '<span class="flex-item bio-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></span>';
+var HTMLmobile = '<span class="flex-item bio-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></span>';
+var HTMLemail = '<span class="flex-item bio-item"><span class="orange-text">email</span><span class="white-text">%data%</span></span>';
+var HTMLtwitter = '<span class="flex-item bio-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></span>';
+var HTMLgithub = '<span class="flex-item bio-item"><span id="hub-link" class="orange-text">github</span><span class="white-text">%data%</span></span>';
 var HTMLblog = '<span class="flex-item bio-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></sp>';
-var HTMLlocation = '<span class="flex-item bio-item"><span class="orange-text">location</span><span class="white-text">%data%</span></sp>';
+var HTMLlocation = '<span class="flex-item bio-item"><span class="orange-text">location</span><span class="white-text">%data%</span></span>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -65,6 +65,15 @@ function displaySkills() {
   }
 }
 
+function generateResume(bio, work, education, projects) {
+  bio.display();
+  displaySkills();
+  work.display();
+  education.display();
+  projects.display();
+  $('#mapDiv').append(googleMap);
+};
+
 function inName(name) {
   var firstName = name.split(" ")[0].replace(/([^.])/, function (_, letter) {
     return letter.toUpperCase();
@@ -103,18 +112,22 @@ function initializeMap() {
 
   function locationFinder() {
 
-    var locations = ["Savona", "Cuneo"];
+    var locations = [];
+    var extract = />[A-Z]\w+\s*\w+/
 
-    locations.push(bio.contacts.location);
-
-    for (var index in education) {
-        locations.push(education[index].location);
+    function getLocation(string) {
+      return string.match(extract)[0].replace(">", "");
     }
 
-  for (var index in work) {
-      locations.push(work[index].location);
-    }
+    locations.push(getLocation(bio.contacts.location));
 
+    education.schools.forEach(function (element) {
+      locations.push(getLocation(element.location));
+    })
+
+    work.jobs.forEach(function (element) {
+      locations.push(getLocation(element.location));
+    })
     return locations;
   }
 
@@ -131,15 +144,12 @@ function initializeMap() {
       title: name
     });
 
-    // infoWindows are the little helper windows that open when you click
-    // or hover over a pin on a map. They usually contain more information
-    // about a location.
     var infoWindow = new google.maps.InfoWindow({
       content: name
     });
 
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.open(map, marker);
     });
 
     bounds.extend(new google.maps.LatLng(lat, lon));
@@ -147,47 +157,29 @@ function initializeMap() {
     map.setCenter(bounds.getCenter());
   }
 
-  /*
-  callback(results, status) makes sure the search returned results for a location.
-  If so, it creates a new map marker for that location.
-  */
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       createMapMarker(results[0]);
     }
   }
 
-  /*
-  pinPoster(locations) takes in the array of locations created by locationFinder()
-  and fires off Google place searches for each location
-  */
   function pinPoster(locations) {
 
-    // creates a Google place search service object. PlacesService does the work of
-    // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
 
-    // Iterates through the array of locations, creates a search object for each location
       locations.forEach(function(place){
-      // the search request object
       var request = {
         query: place || "..."
       };
 
-      // Actually searches the Google Maps API for location data and runs the callback
-      // function with the search results after each search.
       service.textSearch(request, callback);
     });
   }
 
-  // Sets the boundaries of the map based on pin locations
   window.mapBounds = new google.maps.LatLngBounds();
 
-  // locations is an array of location strings returned from locationFinder()
   locations = locationFinder();
 
-  // pinPoster(locations) creates pins on the map for each location in
-  // the locations array
   pinPoster(locations);
 
 }
